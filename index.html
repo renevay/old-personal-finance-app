@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .a1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .b2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .c3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .d4 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+        
+        .d4:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.4);
+        }
+        
+        .e5 {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(67, 233, 123, 0.3);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+        
+        .e5:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(67, 233, 123, 0.4);
+        }
+        
+        .f6 {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(250, 112, 154, 0.3);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+        
+        .f6:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(250, 112, 154, 0.4);
+        }
+        
+        .g7 {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .h8 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .i9 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .j10 {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+        
+        .k11 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .l12 {
+            margin-bottom: 15px;
+        }
+        
+        .m13 {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .n14 {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+        
+        .n14:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .o15 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .o15:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .p16 {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+        
+        .q17 {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .r18 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border-left: 4px solid;
+        }
+        
+        .s19 {
+            background: rgba(67, 233, 123, 0.1);
+            border-left-color: #43e97b;
+        }
+        
+        .t20 {
+            background: rgba(250, 112, 154, 0.1);
+            border-left-color: #fa709a;
+        }
+        
+        .u21 {
+            flex: 1;
+        }
+        
+        .v22 {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .w23 {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .x24 {
+            text-align: right;
+        }
+        
+        .y25 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .z26 {
+            color: #43e97b;
+        }
+        
+        .aa27 {
+            color: #fa709a;
+        }
+        
+        .bb28 {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .bb28:hover {
+            background: #c0392b;
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .c3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .i9 {
+                grid-template-columns: 1fr;
+            }
+            
+            .b2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="a1">
+        <h1 class="b2">💰 Finance Tracker</h1>
+        
+        <div class="c3">
+            <div class="d4">
+                <div class="g7">Total Balance</div>
+                <div class="h8" id="cc29">$0.00</div>
+            </div>
+            <div class="e5">
+                <div class="g7">Total Income</div>
+                <div class="h8" id="dd30">$0.00</div>
+            </div>
+            <div class="f6">
+                <div class="g7">Total Expenses</div>
+                <div class="h8" id="ee31">$0.00</div>
+            </div>
+        </div>
+        
+        <div class="i9">
+            <div class="j10">
+                <h2 class="k11">Add Transaction</h2>
+                <form id="ff32">
+                    <div class="l12">
+                        <label class="m13" for="gg33">Description</label>
+                        <input type="text" id="gg33" class="n14" required>
+                    </div>
+                    <div class="l12">
+                        <label class="m13" for="hh34">Amount ($)</label>
+                        <input type="number" id="hh34" class="n14" step="0.01" required>
+                    </div>
+                    <div class="l12">
+                        <label class="m13" for="ii35">Type</label>
+                        <select id="ii35" class="n14" required>
+                            <option value="">Select Type</option>
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                    </div>
+                    <div class="l12">
+                        <label class="m13" for="jj36">Category</label>
+                        <select id="jj36" class="n14" required>
+                            <option value="">Select Category</option>
+                            <option value="food">Food</option>
+                            <option value="transport">Transport</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="utilities">Utilities</option>
+                            <option value="salary">Salary</option>
+                            <option value="freelance">Freelance</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="o15">Add Transaction</button>
+                </form>
+            </div>
+            
+            <div class="p16">
+                <h2 class="k11">Recent Transactions</h2>
+                <div class="q17" id="kk37">
+                    <div style="text-align: center; color: #7f8c8d; padding: 40px;">
+                        No transactions yet. Add your first transaction!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let ll38 = [];
+        
+        function mm39() {
+            const nn40 = document.getElementById('cc29');
+            const oo41 = document.getElementById('dd30');
+            const pp42 = document.getElementById('ee31');
+            
+            let qq43 = 0;
+            let rr44 = 0;
+            let ss45 = 0;
+            
+            ll38.forEach(tt46 => {
+                if (tt46.uu47 === 'income') {
+                    rr44 += parseFloat(tt46.vv48);
+                } else {
+                    ss45 += parseFloat(tt46.vv48);
+                }
+            });
+            
+            qq43 = rr44 - ss45;
+            
+            nn40.textContent = `$${qq43.toFixed(2)}`;
+            oo41.textContent = `$${rr44.toFixed(2)}`;
+            pp42.textContent = `$${ss45.toFixed(2)}`;
+            
+            if (qq43 >= 0) {
+                nn40.parentElement.className = 'd4';
+            } else {
+                nn40.parentElement.className = 'f6';
+            }
+        }
+        
+        function ww49() {
+            const xx50 = document.getElementById('kk37');
+            
+            if (ll38.length === 0) {
+                xx50.innerHTML = '<div style="text-align: center; color: #7f8c8d; padding: 40px;">No transactions yet. Add your first transaction!</div>';
+                return;
+            }
+            
+            xx50.innerHTML = '';
+            
+            const yy51 = [...ll38].reverse();
+            
+            yy51.forEach((tt46, zz52) => {
+                const aaa53 = document.createElement('div');
+                aaa53.className = `r18 ${tt46.uu47 === 'income' ? 's19' : 't20'}`;
+                
+                aaa53.innerHTML = `
+                    <div class="u21">
+                        <div class="v22">${tt46.bbb54}</div>
+                        <div class="w23">${tt46.ccc55} • ${tt46.ddd56}</div>
+                    </div>
+                    <div class="x24">
+                        <div class="y25 ${tt46.uu47 === 'income' ? 'z26' : 'aa27'}">
+                            ${tt46.uu47 === 'income' ? '+' : '-'}$${parseFloat(tt46.vv48).toFixed(2)}
+                        </div>
+                        <button class="bb28" onclick="eee57(${ll38.length - 1 - zz52})">Delete</button>
+                    </div>
+                `;
+                
+                xx50.appendChild(aaa53);
+            });
+        }
+        
+        function fff58(ggg59) {
+            ll38.push({
+                id: Date.now(),
+                bbb54: ggg59.gg33,
+                vv48: ggg59.hh34,
+                uu47: ggg59.ii35,
+                ccc55: ggg59.jj36,
+                ddd56: new Date().toLocaleDateString()
+            });
+            
+            mm39();
+            ww49();
+        }
+        
+        function eee57(hhh60) {
+            ll38.splice(hhh60, 1);
+            mm39();
+            ww49();
+        }
+        
+        document.getElementById('ff32').addEventListener('submit', function(iii61) {
+            iii61.preventDefault();
+            
+            const jjj62 = {
+                gg33: document.getElementById('gg33').value,
+                hh34: document.getElementById('hh34').value,
+                ii35: document.getElementById('ii35').value,
+                jj36: document.getElementById('jj36').value
+            };
+            
+            fff58(jjj62);
+            
+            this.reset();
+        });
+        
+        mm39();
+        ww49();
+    </script>
+</body>
+</html>
